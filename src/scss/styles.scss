@@ -1,0 +1,311 @@
+@import 'base';
+@import 'header';
+@import 'footer';
+
+#content-header img {
+  max-width: 800px;
+  margin: 2.4rem auto 0;
+  display: block;
+  width: 100%;
+}
+
+.chart {
+  font-family: $sans;
+  margin: 0 auto 2.4rem;
+  max-width: 650px;
+  h4 {
+    font-weight: 700;
+  }
+}
+
+#prospects-table {
+  font-family: $sans;
+  font-size: 1.4rem;
+  margin: 0 auto 2.4rem;
+  max-width: 650px;
+  width: 100%;
+  thead {
+    tr {
+      font-weight: bold;
+      border-bottom: 1px solid $black66;
+      th {
+        padding: 3px 0;
+        text-align: left;
+        &:nth-of-type(2) {
+          width: 40px;
+        }
+      }
+    }
+  }
+  tbody {
+    tr {
+      border-bottom: 1px solid $black235;
+      td {
+        line-height: 4.1rem;
+        padding: 5px 0 0;
+        position: relative;
+        &:nth-of-type(2) {
+          width: 45px;
+        }
+        img {
+          bottom: 0;
+          position: absolute;
+          width: 40px;
+        }
+      }
+    }
+  }
+  @media (max-width: 500px) {
+    thead tr th:last-of-type, tbody tr td:last-of-type {
+      display: none;
+    }
+    tbody {
+      tr {
+        td {
+          letter-spacing: -.5px;
+        }
+      }
+    }
+  }
+}
+
+#prospects {
+  display: grid;
+  grid-column-gap: 3.6rem;
+  grid-row-gap: 3.6rem;
+  grid-template-columns: repeat(2, 1fr);
+  @media (max-width: 1150px) {
+    grid-template-columns: repeat(1, 1fr);
+    margin: 0 auto;
+    max-width: 650px;
+    width: 100%;
+  }
+}
+
+.prospect-card {
+  border: 1px solid $black225;
+  font-family: $sans;
+  padding: 2.4rem;
+  position: relative;
+  &:before {
+    @include psuedoElement(4rem, 4rem, absolute);
+    @include rotate(45deg);
+    background-color: white;
+    border-bottom: 1px solid $black225;
+    left: calc(100% - 2rem);
+    top: calc((2rem + 1px) * -1);
+  }
+  header {
+    border-bottom: 1px dotted $black215;
+    margin-bottom: 1.2rem;
+    padding-bottom: 1.2rem;
+    position: relative;
+  }
+}
+
+.player-mug {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  width: 150px;
+  @media (max-width: 650px) {
+    display: none;
+  }
+}
+
+.header__content {
+  margin-left: 160px;
+  width: calc(100% - 160px);
+  color: $black33;
+  h4 {
+    @include type(2.8rem, 3.6rem, 1.2rem);
+    font-weight: bold;
+    letter-spacing: -1px;
+    position: relative;
+    width: 100%;
+  }
+  h5 {
+    font-weight: bold;
+    letter-spacing: -.5px;
+    margin-bottom: 0rem;
+  }
+  h6 {
+    @include type(1.5rem, 1.8rem, 0);
+    color: $black121;
+    text-transform: uppercase;
+    &.rank {
+      @include type(1.2rem, 1.6rem, 0.6rem);
+      background-color: $chartRed;
+      color: white;
+      display: inline-block;
+      font-weight: bold;
+      padding: 0.2rem 0.5rem;
+      position: relative;
+      z-index: 10;
+      &:after {
+        @include psuedoElement(0, 0, absolute);
+        border-color: transparent transparent transparent $chartRed;
+        border-style: solid;
+        border-width: 1rem 0 1rem .75rem;
+        left: 100%;
+        top: 0;
+      }
+    }
+  }
+  p {
+    @include type(1.4rem, 1.8rem, 1.2rem);
+    font-family: $sans;
+    span {
+      display: inline-block;
+      margin-right: 10px;
+    }
+    &:after {
+      @include psuedoElement(100%, 10px, relative);
+      background-image: url('../images/_chevron.jpg');
+      background-size: 5.5px 10px;
+      margin-top: 1.2rem;
+      opacity: .5;
+    }
+  }
+  @media (max-width: 650px) {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+
+.pedigree {
+  img {
+    display: none;
+  }
+  @media (max-width: 650px) {
+    position: relative;
+    margin-bottom: 1.2rem;
+    img {
+      border-bottom: 1px solid $black215;
+      bottom: 0;
+      display: block;
+      left: 0;
+      max-width: 60px;
+      position: absolute;
+    }
+    h4, h6 {
+      margin-left: 70px;
+    }
+    h4 {
+      margin-bottom: 0;
+      width: calc(100% - 70px);
+    }
+  }
+}
+
+.team-logo {
+  float: left;
+  margin-right: 10px;
+  max-width: 40px;
+}
+
+.prospect__content {
+  p {
+    @include type(1.4rem, 1.8rem, 1.8rem);
+    font-family: $sans;
+  }
+}
+
+.prospect__stats {
+  border-bottom: 1px dotted $black215;
+  margin-bottom: 1.2rem;
+  padding-bottom: 1.2rem;
+  table {
+    @include type(1.3rem, 1.8rem, 0);
+    font-family: $sans;
+    width: calc(65% - 20px);
+    tr {
+      border-bottom: 1px solid $black235;
+      &:last-of-type {
+        border-bottom: none;
+      }
+    }
+    th {
+      font-weight: bold;
+      text-align: right;
+      &:first-of-type {
+        text-align: left;
+      }
+    }
+    td {
+      padding: 0 3px 0 0;
+      text-align: right;
+      width: calc(100% / 6);
+      &:first-of-type {
+        text-align: left;
+      }
+    }
+  }
+  @media(max-width: 650px) {
+    table {
+      width: 100%;
+    }
+  }
+}
+.pitcher__table .hitter {
+  display: none;
+}
+.hitter__table .pitcher {
+  display: none;
+}
+
+.charts {
+  width: 100%;
+}
+
+.source {
+  @include type(1.1rem, 1.5rem, 0rem);
+  clear: both;
+  padding-top: 0.6rem;
+}
+.label {
+  @include type(1.2rem, 1.5rem, 0.6rem);
+  border-bottom: 1px dotted rgba($chartRed, 0.5);
+  display: inline-block;
+  padding-bottom: 0.3rem;
+}
+
+.top100-rankings {
+  border-right: 1px solid $black215;
+  display: block;
+  float: left;
+  margin-right: 10px;
+  padding-right: 10px;
+  width: 65%;
+}
+.tex30-rankings {
+  display: block;
+  float: right;
+  width: calc(35% - 20px);
+}
+
+@media (max-width: 500px) {
+  .top100-rankings, .tex30-rankings {
+    border-right: none;
+    float: none;
+    margin-right: 0;
+    padding-right: 0;
+    width: 100%;
+  }
+  .top100-rankings {
+    margin-bottom: 1.2rem;
+  }
+}
+
+.player-unit {
+  background-color: $black225;
+  // border-radius: 50%;
+  display: inline-block;
+  height: 8px;
+  margin: 0 3px 1px 0;
+  width: 8px;
+}
+
+.player-unit--matched {
+  background-color: $chartRed;
+}
