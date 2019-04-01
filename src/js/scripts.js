@@ -219,7 +219,7 @@ $(document).ready(() => {
       },
       statSeason() {
         if (this.prospect.period === 'Spring') {
-          return '2008';
+          return '2018';
         } return 'Season';
       }
     },
