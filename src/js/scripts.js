@@ -102,7 +102,7 @@ $(document).ready(() => {
               <h4>{{prospect.firstname}} {{prospect.lastname}} </h4>
             </div>
             <p>
-              <span><strong>Position:</strong> {{prospect.position}}</span>
+              <span><strong>Pos:</strong> {{prospect.position}}</span>
               <span><strong>Opening day age:</strong> {{prospect.age}}</span>
               <span><strong>MLB comp:</strong> {{prospect.comp}}</span>
             </p>
