@@ -18,70 +18,70 @@ $(document).ready(() => {
     return foundPlayer;
   }
 
-  Vue.component('chart-unit', {
-    props: {
-      player: {
-        type: Object,
-        required: true,
-      },
-      rankings: {
-        type: Object,
-        required: true,
-      },
-    },
-    template: `
-          <span
-            v-for="prospect in rankings.top100"
-            :unit="prospect"
-            :key="player.lastname + '-' + prospect.player_last_name + '-' + prospect.rank"
-            :class='"player-unit " + matchesName(prospect)'
-          >
-          </span>
-    `,
-    computed: {
-      concatName() {
-        return this.player.firstname.toLowerCase().replace(' ', '') + this.player.lastname.toLowerCase().replace(' ', '');
-      },
-    },
-    methods: {
-      matchesName(prospect) {
-        const rangProspectName = `${this.player.firstname} ${this.player.lastname}`;
-        const rankProspectName = `${prospect.player_first_name} ${prospect.player_last_name}`;
+  // Vue.component('chart-unit', {
+  //   props: {
+  //     player: {
+  //       type: Object,
+  //       required: true,
+  //     },
+  //     rankings: {
+  //       type: Object,
+  //       required: true,
+  //     },
+  //   },
+  //   template: `
+  //         <span
+  //           v-for="prospect in rankings.top100"
+  //           :unit="prospect"
+  //           :key="player.lastname + '-' + prospect.player_last_name + '-' + prospect.rank"
+  //           :class='"player-unit " + matchesName(prospect)'
+  //         >
+  //         </span>
+  //   `,
+  //   computed: {
+  //     concatName() {
+  //       return this.player.firstname.toLowerCase().replace(' ', '') + this.player.lastname.toLowerCase().replace(' ', '');
+  //     },
+  //   },
+  //   methods: {
+  //     matchesName(prospect) {
+  //       const rangProspectName = `${this.player.firstname} ${this.player.lastname}`;
+  //       const rankProspectName = `${prospect.player_first_name} ${prospect.player_last_name}`;
+  //
+  //       if (rangProspectName === rankProspectName) {
+  //         return 'player-unit--matched';
+  //       } return 'player-unit--unmatched';
+  //     },
+  //   },
+  // });
 
-        if (rangProspectName === rankProspectName) {
-          return 'player-unit--matched';
-        } return 'player-unit--unmatched';
-      },
-    },
-  });
-
-  Vue.component('prospect-row', {
-    props: ['prospects'],
-    data() {
-      return {
-        row: { ...this.prospects },
-      };
-    },
-    template: `
-      <tr>
-        <td>{{row.rank}}</td>
-        <td><img :src="'images/_' + imageName + '.jpg'" :alt="row.firstnaem + ' ' + row.lastname"/></td>
-        <td>{{row.firstname}} {{row.lastname}}</td>
-        <td>{{row.position}}</td>
-        <td>{{row.age}}</td>
-        <td>{{row.level}}</td>
-      </tr>
-    `,
-    computed: {
-      imageName() {
-        if (!this.row.playermug) {
-          return 'defaultPlayer';
-        } else if (this.row.playermug.replace(' ', '').length > 0) {
-          return `${this.row.firstname.toLowerCase().replace(' ', '')}${this.row.lastname.toLowerCase().replace(' ', '')}`;
-        } return 'defaultPlayer';
-      },
-    },
-  });
+  // Vue.component('prospect-row', {
+  //   props: ['prospects'],
+  //   data() {
+  //     return {
+  //       row: { ...this.prospects },
+  //     };
+  //   },
+  //   template: `
+  //     <tr>
+  //       <td>{{row.rank}}</td>
+  //       <td><img :src="'images/_' + imageName + '.jpg'" :alt="row.firstnaem + ' ' + row.lastname"/></td>
+  //       <td>{{row.firstname}} {{row.lastname}}</td>
+  //       <td>{{row.position}}</td>
+  //       <td>{{row.age}}</td>
+  //       <td>{{row.level}}</td>
+  //     </tr>
+  //   `,
+  //   computed: {
+  //     imageName() {
+  //       if (!this.row.playermug) {
+  //         return 'defaultPlayer';
+  //       } else if (this.row.playermug.replace(' ', '').length > 0) {
+  //         return `${this.row.firstname.toLowerCase().replace(' ', '')}${this.row.lastname.toLowerCase().replace(' ', '')}`;
+  //       } return 'defaultPlayer';
+  //     },
+  //   },
+  // });
 
   Vue.component('prospect-card', {
     props: ['prospectData'],
@@ -108,8 +108,10 @@ $(document).ready(() => {
             </p>
             <div class="prospect__affiliate">
               <img class="team-logo" :src="'images/_' + logoName + '.jpg'" :alt=prospect.team />
-              <h5>{{prospect.team}}</h5>
-              <h6>{{prospectClass}} {{prospect.level}}</h6>
+              <div class="affiliate__text">
+                <h5>{{prospect.team}}</h5>
+                <h6>{{prospectClass}} {{prospect.level}}</h6>
+              </div>
             </div>
           </div>
         </header>
@@ -229,7 +231,7 @@ $(document).ready(() => {
   // the drawing of the prospects on the page via Vue
   function drawProspects(prospects) {
     const rangersProspects = new Vue({
-      el: '#prospect-app',
+      el: '#prospects',
       data: { prospects, mlbRanks },
     });
   }

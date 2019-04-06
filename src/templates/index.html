@@ -93,12 +93,12 @@ googletag.cmd.push(function () {
                   .setTargeting("position", "Top")
                   .addService(googletag.pubads());
 
-  /*
+
   var adSlot1 = googletag.defineSlot('/' + DFP_networkId + '/' + DFP_sitepage, DFPSlotSizes, "dfpAdPositionMiddle")
                   .defineSizeMapping(dfpSizeMapping)
                   .setTargeting("position", "Top2")
                   .addService(googletag.pubads());
-  */
+
 
   /*
   var adSlot2 = googletag.defineSlot('/' + DFP_networkId + '/' + DFP_sitepage, DFPSlotSizes, "dfpAdPositionBottom")
@@ -149,36 +149,27 @@ googletag.cmd.push(function () {
 
       <p>General manager Jon Daniels put the club in better position to do that with veterans-for-prospects trades last summer. The next step is for the system to produce major-league talent again.</p>
 
-      <!-- <div class="chart">
-        <h4>Rangers Top 10 prospects</h4>
-
-        <table id="prospects-table">
-          <thead>
-            <tr><th>Rk.</th><th></th><th>Name</th><th>Pos.</th><th>Age</th><th>Class</th></tr>
-          </thead>
-          <tbody>
-            <tr is="prospect-row" v-for="prospect in prospects" :prospects="prospect" :key="prospect.firstname"></tr>
-          </tbody>
-        </table>
-      </div> -->
-
       <p>“We have a chance to be viewed as top 10 system a year from now,” Daniels said. “We’ve got to go out and earn it. The player development group has a lot of work to do to get these guys prepared.”</p>
       <p>Through conversations with Rangers officials and talent evaluations with other organizations, The Dallas Morning News put together a list of the top 10 individual prospects. This list will be re-evaluated each month as the season progresses, with weekly updates to come.</p>
 
+      {% include "adblock1.html" %}
+
+      {% raw %}
       <div id="prospects">
         <prospect-card v-for="prospect in prospects" :prospect-data="prospect" :key="prospect.rank"></prospect-card>
       </div>
+      {% endraw %}
 
-      {%include "adblock1.html" %}
+      {% include "adblock2.html" %}
 
       <p class="twitter-tag">Follow Gerry Fraley on Twitter at <a href="https://www.twitter.com/gfraley">@gfraley.</a></p>
 
     </div>
 
+
     <section class="credits">
         <p>Author: <a href="mailto:gfraley@dallasnews.com">Gerry Fraley</a></p>
         <p>Editor: <a href="mailto:tmagelssen@dallasnews.com">Tommy Magelssen</a></p>
-        <p>Copy Editor: <a href="mailto:emailaddress">Name</a></p>
         <p>Photos: <a href="mailto:spool@dallasnews.com">Smiley N. Pool</a></p>
         <p>Design and development: <a href="mailto:jhancock@dallasnews.com">John Hancock</a></p>
     </section>
