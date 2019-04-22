@@ -120,7 +120,7 @@ $(document).ready(() => {
           <p><strong>Latest: </strong>{{prospect.latest}}</p>
           <p><strong>Pros: </strong>{{prospect.pros}}</p>
           <p><strong>Cons: </strong>{{prospect.cons}}</p>
-          <p><strong>Second opinion: </strong>{{prospect.cons}}</p>
+          <p><strong>Second opinion: </strong>{{prospect.secondopinion}}</p>
 
         </div>
         <div class="prospect__stats" v-if='prospect.seasonstat1 !== undefined'>
