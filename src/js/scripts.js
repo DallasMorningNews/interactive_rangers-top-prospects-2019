@@ -240,6 +240,7 @@ $(document).ready(() => {
   // then handing off the remaining data to the drawProspects function
   function formatData(data) {
     const updated = data.splice(0, 1);
+    $('.updated').html(updated[0].updatedate);
     drawProspects(data);
   }
 
