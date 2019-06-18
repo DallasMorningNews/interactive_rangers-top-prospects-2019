@@ -199,6 +199,7 @@ $(document).ready(() => {
       },
       logoName() {
         const choppedTeamName = this.prospect.team.split(' ');
+        console.log(choppedTeamName);
         return choppedTeamName[choppedTeamName.length - 1].toLowerCase();
       },
       mlbRank() {

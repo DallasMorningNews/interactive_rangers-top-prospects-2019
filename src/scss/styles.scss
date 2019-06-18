@@ -318,3 +318,9 @@
 .player-unit--matched {
   background-color: $chartRed;
 }
+
+strong.bulletted {
+  &:before {
+    content: '• '
+  }
+}
