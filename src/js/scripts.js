@@ -178,7 +178,7 @@ $(document).ready(() => {
     `,
     methods: {
       matchesName(mlbprospect) {
-        const rangProspectName = `${this.prospect.firstname} ${this.prospect.lastname}`;
+        const rangProspectName = `${this.prospect.firstname.trim()} ${this.prospect.lastname.trim()}`;
         const rankProspectName = `${mlbprospect.player_first_name} ${mlbprospect.player_last_name}`;
 
         if (rangProspectName === rankProspectName) {
@@ -203,7 +203,7 @@ $(document).ready(() => {
         return choppedTeamName[choppedTeamName.length - 1].toLowerCase();
       },
       mlbRank() {
-        const foundProspect = playerFinder(mlbRanks.top100, this.prospect.firstname, this.prospect.lastname);
+        const foundProspect = playerFinder(mlbRanks.top100, this.prospect.firstname.trim(), this.prospect.lastname.trim());
         return foundProspect ? foundProspect.rank : undefined;
       },
       prospectClass() {
@@ -212,7 +212,7 @@ $(document).ready(() => {
         } return 'Class';
       },
       rangersRank() {
-        const foundProspect = playerFinder(mlbRanks.rangers, this.prospect.firstname, this.prospect.lastname);
+        const foundProspect = playerFinder(mlbRanks.rangers, this.prospect.firstname.trim(), this.prospect.lastname.trim());
         return foundProspect ? foundProspect.rank : undefined;
       },
       statline() {
