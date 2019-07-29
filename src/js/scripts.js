@@ -127,7 +127,7 @@ $(document).ready(() => {
           <table>
             <tbody :class="statline + '__table'">
               <tr class="pitcher"><th>Period</th><th>IP</th><th>W</th><th>L</th><th>SO</th><th>ERA</th></tr>
-              <tr class="hitter"><th>Period</th><th>AVG</th><th>R</th><th>HR</th><th>RBI</th><th>SO</th></tr>
+              <tr class="hitter"><th>Period</th><th>AVG</th><th>R</th><th>HR</th><th>RBI</th><th>SB</th></tr>
               <tr v-if='prospect.periodstat1 !== undefined'>
                 <td>{{prospect.period}}</td>
                 <td>{{prospect.periodstat1}}</td>
